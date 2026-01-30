@@ -1,0 +1,51 @@
+{
+  "gateway": {
+    "mode": "local",
+    "bind": "loopback",
+    "port": 18789
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "gemini/gemini-2.5-flash"
+      },
+	  "elevatedDefault": "full" ,
+      "workspace": "/home/austoin/wangwang",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "gemini": {
+        "baseUrl": "https://elysiver.h-e.top/v1",
+        "apiKey": "sk-4mbVbZHewKhDr8qdCNMDpx0bOtfi2eisWnM3jlWNoUI1bBxN",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "gemini-2.5-flash",
+            "name": "gemini-2.5-flash"
+          }
+        ]
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "botToken": "8507959384:AAFtTGtAKoJCY0lvSO0HroMb1DXZn2fNb_8"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}

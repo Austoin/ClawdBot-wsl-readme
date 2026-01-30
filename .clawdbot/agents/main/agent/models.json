@@ -1,0 +1,27 @@
+{
+  "providers": {
+    "gemini": {
+      "baseUrl": "https://elysiver.h-e.top/v1",
+      "apiKey": "sk-4mbVbZHewKhDr8qdCNMDpx0bOtfi2eisWnM3jlWNoUI1bBxN",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "gemini-2.5-flash",
+          "name": "gemini-2.5-flash",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192
+        }
+      ]
+    }
+  }
+}
