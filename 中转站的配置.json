@@ -1,0 +1,51 @@
+{
+  "gateway": {
+    "mode": "local",
+    "bind": "loopback",
+    "port": 18789
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "gemini/gemini-3-flash"
+      },
+	  "elevatedDefault": "full" ,
+      "workspace": "/wangwang",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "gemini": {
+        "baseUrl": "https://你的中转站API/v1",
+        "apiKey": "test",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "gemini-3-flash",
+            "name": "gemini-3-flash"
+          }
+        ]
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "botToken": "你的TG Token"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      }
+    }
+  }
+}
