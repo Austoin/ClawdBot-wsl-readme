@@ -185,7 +185,33 @@ echo "proxychains4 -q clawdbot gateway --verbose" > ~/start_clawd.sh
 chmod +x ~/start_clawd.sh
 # 启动
 pm2 start ~/start_clawd.sh --name "clawdbot"
+# 验证是否运行
+pm2 list
+# 最关键的一步：保存列表（WSL重启后自动恢复）
 pm2 save
+```
+
+**验证与启动后检查**：
+
+运行 `pm2 list` 后，你应该能看到一行 name 为 `clawdbot` 且 status 为 `online` 的记录。
+
+**PM2 常用管理命令**：
+
+```bash
+# 查看实时日志
+pm2 logs clawdbot
+
+# 重启服务（修改配置后使用）
+pm2 restart clawdbot
+
+# 停止服务
+pm2 stop clawdbot
+
+# 查看所有进程
+pm2 list
+
+# 删除所有进程
+pm2 delete all
 ```
 
 #### 方案 B：Systemd 系统服务 (云服务器首选)
